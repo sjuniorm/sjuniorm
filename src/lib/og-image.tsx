@@ -5,7 +5,8 @@ export const OG_ALT = "Stef Junior Mylle — Security & AI Software";
 export const OG_CONTENT_TYPE = "image/png";
 
 const BG = "#0a0b0d";
-const ACCENT = "#2ee6c8";
+const ACCENT = "#7c6cff";
+const ACCENT_RGB = "124,108,255";
 const TEXT = "#e8eaef";
 const MUTED = "#7b8290";
 
@@ -21,8 +22,7 @@ export function renderOgImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           background: BG,
-          backgroundImage:
-            "radial-gradient(900px 520px at 82% -10%, rgba(46,230,200,0.18), transparent 60%)",
+          backgroundImage: `radial-gradient(900px 520px at 82% -10%, rgba(${ACCENT_RGB},0.20), transparent 60%)`,
           padding: "72px 80px",
           fontFamily: "sans-serif",
         }}
@@ -34,7 +34,7 @@ export function renderOgImage() {
               width: 132,
               height: 132,
               borderRadius: 28,
-              border: `2px solid rgba(46,230,200,0.38)`,
+              border: `2px solid rgba(${ACCENT_RGB},0.42)`,
               background: "rgba(255,255,255,0.03)",
               display: "flex",
               alignItems: "center",

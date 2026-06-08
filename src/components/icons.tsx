@@ -73,6 +73,11 @@ export const Icon: Record<LinkType, (p: SVGProps<SVGSVGElement>) => React.ReactE
       <path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.66l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.01 4.13H5.04l12.04 15.64z" />
     </svg>
   ),
+  facebook: (p) => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" {...p}>
+      <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.03 4.39 11.03 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.96H15.83c-1.49 0-1.96.93-1.96 1.87v2.25h3.33l-.53 3.49h-2.8v8.44C19.61 23.1 24 18.1 24 12.07z" />
+    </svg>
+  ),
   website: (p) => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" {...p}>
       <circle cx="12" cy="12" r="9" />
@@ -98,6 +103,7 @@ export const linkLabel: Record<LinkType, string> = {
   instagram: "Instagram",
   linkedin: "LinkedIn",
   x: "X",
+  facebook: "Facebook",
   whatsapp: "WhatsApp",
   mail: "Email",
 };

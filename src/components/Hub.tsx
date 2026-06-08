@@ -8,11 +8,11 @@ import {
   footer,
   identity,
   languages,
-  socials,
   ventures,
   type Lang,
 } from "@/content";
 import { Icon, linkLabel, Monogram } from "./icons";
+import TerminalTile from "./TerminalTile";
 
 const STORAGE_KEY = "sjm-lang";
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -22,7 +22,6 @@ const isLang = (v: string | null): v is Lang =>
 /* Terms emphasised in the About copy, per language (README spec). */
 const ABOUT_TERMS: Record<Lang, string[]> = {
   en: ["Stef Junior Mylle", "Buzz Alarmas", "Xyra Chat", "security", "AI"],
-  es: ["Stef Junior Mylle", "Buzz Alarmas", "Xyra Chat", "seguridad", "IA"],
   nl: ["Stef Junior Mylle", "Buzz Alarmas", "Xyra Chat", "security", "AI"],
 };
 
@@ -99,9 +98,6 @@ export default function Hub({ showAbout = true }: { showAbout?: boolean }) {
           </div>
           <div className="hero-meta">
             <span className="chip">
-              <span className="k">~/</span> {identity.location[lang]}
-            </span>
-            <span className="chip">
               <span className="k">●</span> {identity.role[lang]}
             </span>
           </div>
@@ -149,31 +145,8 @@ export default function Hub({ showAbout = true }: { showAbout?: boolean }) {
           </section>
         ))}
 
-        {/* ---- SOCIALS ---- */}
-        {socials.map((s, i) => {
-          const Glyph = Icon[s.type];
-          return (
-            <a
-              className="tile link social"
-              key={s.platform}
-              href={s.url}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={s.platform}
-            >
-              <div className="thead">
-                <span className="tidx">{pad(i + 1)}</span>
-              </div>
-              <span className="sicon">
-                <Glyph aria-hidden="true" />
-              </span>
-              <div>
-                <div className="sname">{s.platform}</div>
-                <div className="shandle">{s.handle}</div>
-              </div>
-            </a>
-          );
-        })}
+        {/* ---- TERMINAL (fills the slot the socials used to occupy) ---- */}
+        <TerminalTile />
 
         {/* ---- CONTACT ---- */}
         <section className="tile contact" aria-label="Contact">
@@ -194,6 +167,15 @@ export default function Hub({ showAbout = true }: { showAbout?: boolean }) {
           <div className="cactions">
             <a className="cbtn wa" href={`mailto:${contact.email}`}>
               <Icon.mail aria-hidden="true" /> Send mail
+            </a>
+            <a
+              className="cbtn ghost-btn"
+              href={contact.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Message me on WhatsApp"
+            >
+              <Icon.whatsapp aria-hidden="true" /> WhatsApp
             </a>
           </div>
         </section>

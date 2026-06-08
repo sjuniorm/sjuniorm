@@ -49,4 +49,5 @@ npm run lint
 
 ## Design source
 The pixel spec and design tokens live in `../design_handoff_portfolio/` (`README.md`,
-`mockup/portfolio.html`). The accent is electric teal `#2ee6c8`.
+`mockup/portfolio.html`). The accent is electric violet `#7c6cff` (the design source
+used teal `#2ee6c8` — swap `--accent` in `globals.css` to change it everywhere).
