@@ -65,12 +65,11 @@ export default function TerminalTile() {
   }, []);
 
   const cursorAt = Math.min(pos.li, SCRIPT.length - 1);
-  const visible = SCRIPT.slice(0, Math.min(pos.li + 1, SCRIPT.length));
 
   return (
     <section className="tile fun" aria-label="Terminal">
       <div className="thead">
-        <span className="tidx">04</span>
+        <span className="tidx">03</span>
         <span className="tlabel">/ Terminal</span>
         <span className="term-dots" aria-hidden="true">
           <i />
@@ -78,23 +77,35 @@ export default function TerminalTile() {
           <i />
         </span>
       </div>
+      {/* Every line row is always rendered (empty ones reserve their height),
+          so the box never resizes as the text types in. */}
       <div className="term-body" aria-hidden="true">
-        {visible.map((line, idx) => {
-          const text = idx < pos.li ? line.text : line.text.slice(0, pos.ci);
+        {SCRIPT.map((line, idx) => {
+          const started = idx <= pos.li;
+          const text =
+            idx < pos.li
+              ? line.text
+              : idx === pos.li
+                ? line.text.slice(0, pos.ci)
+                : "";
           return (
             <div className="term-line" key={idx}>
-              <span className="term-p">{line.kind === "cmd" ? "$" : "›"}</span>
-              <span
-                className={
-                  line.kind === "cmd"
-                    ? "term-cmd"
-                    : line.accent
-                      ? "term-out acc"
-                      : "term-out"
-                }
-              >
-                {text}
-              </span>
+              {started && (
+                <span className="term-p">{line.kind === "cmd" ? "$" : "›"}</span>
+              )}
+              {started && (
+                <span
+                  className={
+                    line.kind === "cmd"
+                      ? "term-cmd"
+                      : line.accent
+                        ? "term-out acc"
+                        : "term-out"
+                  }
+                >
+                  {text}
+                </span>
+              )}
               {idx === cursorAt && <span className="term-cursor" />}
             </div>
           );

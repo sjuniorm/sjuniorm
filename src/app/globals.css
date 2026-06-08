@@ -410,6 +410,7 @@ button:focus-visible {
   align-items: baseline;
   gap: 9px;
   white-space: pre;
+  min-height: 24px; /* reserve height so empty/typing rows don't resize the box */
 }
 .term-p {
   color: var(--accent);
