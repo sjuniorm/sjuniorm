@@ -57,7 +57,7 @@ export default function Hub({ showAbout = true }: { showAbout?: boolean }) {
       <div className="statusbar">
         <span className="dot" aria-hidden="true" />
         <span>
-          stef_mylle<span className="hide-sm">{" // links"}</span>
+          stef_junior_mylle<span className="hide-sm">{" // links"}</span>
         </span>
         <span className="sep" aria-hidden="true" />
         <span className="hide-sm">v1.0</span>

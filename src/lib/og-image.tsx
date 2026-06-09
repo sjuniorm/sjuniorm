@@ -66,7 +66,7 @@ export function renderOgImage() {
                 background: ACCENT,
               }}
             />
-            {"stef_mylle // links"}
+            {"stef_junior_mylle // links"}
           </div>
         </div>
 
